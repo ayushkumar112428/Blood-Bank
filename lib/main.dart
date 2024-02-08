@@ -1,6 +1,5 @@
+import 'package:bloodbank/auth/selct_login_register.dart';
 import 'package:flutter/material.dart';
-
-import 'Screens/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurpleAccent),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const SelectLR(),
     );
   }
 }
