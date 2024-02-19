@@ -329,10 +329,10 @@ class _DonorFormState extends State<DonorForm> {
               padding: const EdgeInsets.all(20.0),
               child: ElevatedButton(
                 onPressed: () {
-                  // if (_formKey.currentState!.validate() && _bloodGroup!.isNotEmpty) {
-                  //   Navigator.push(context, MaterialPageRoute(builder: (context) => AddedDonorData()));
-                  // }
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const AddedDonorData()));
+                  if (_formKey.currentState!.validate() && _bloodGroup!.isNotEmpty) {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const AddedDonorData()));
+                  }
+                  // Navigator.push(context, MaterialPageRoute(builder: (context) => const AddedDonorData()));
                 },
                 child: Text(
                   button,  // Assuming 'button' is a variable holding the button text

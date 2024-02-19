@@ -1,4 +1,4 @@
-import 'bloodgroup.dart';
+import '../bloodgroup.dart';
 
 List<BloodGroup> aNegativeGroup = [
   BloodGroup(

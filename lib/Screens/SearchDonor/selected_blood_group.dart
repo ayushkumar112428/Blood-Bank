@@ -1,13 +1,13 @@
-import 'package:bloodbank/Data/a_negative_group.dart';
-import 'package:bloodbank/Data/a_positive_group.dart';
-import 'package:bloodbank/Data/ab_negative_group.dart';
-import 'package:bloodbank/Data/ab_positive_group.dart';
-import 'package:bloodbank/Data/b_negative_group.dart';
-import 'package:bloodbank/Data/b_positive_group.dart';
+import 'package:bloodbank/Data/BloodGroup/a_negative_group.dart';
+import 'package:bloodbank/Data/BloodGroup/a_positive_group.dart';
+import 'package:bloodbank/Data/BloodGroup/ab_negative_group.dart';
+import 'package:bloodbank/Data/BloodGroup/ab_positive_group.dart';
+import 'package:bloodbank/Data/BloodGroup/b_negative_group.dart';
+import 'package:bloodbank/Data/BloodGroup/b_positive_group.dart';
 import 'package:bloodbank/Data/bloodgroup.dart';
-import 'package:bloodbank/Data/o_positive_group.dart';
+import 'package:bloodbank/Data/BloodGroup/o_positive_group.dart';
 import 'package:flutter/material.dart';
-import '../../Data/o_negative_group.dart';
+import '../../Data/BloodGroup/o_negative_group.dart';
 
 class SelectedBloodGroup extends StatefulWidget {
   final String bloodGroup;

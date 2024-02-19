@@ -204,7 +204,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 100,),
+                const SizedBox(height: 40,),
                 Center(
                   child: RichText(
                     textAlign: TextAlign.center,

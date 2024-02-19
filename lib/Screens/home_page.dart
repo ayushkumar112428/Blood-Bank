@@ -1,5 +1,9 @@
+import 'package:bloodbank/Screens/BloodBank/blood_bank.dart';
+import 'package:bloodbank/Screens/BloodRequest/blood_request_form.dart';
+import 'package:bloodbank/Screens/DonorCard/donor_card.dart';
 import 'package:bloodbank/Screens/SearchDonor/select_blood_group.dart';
 import 'package:bloodbank/Screens/my_notes.dart';
+import 'package:bloodbank/auth/selct_login_register.dart';
 import 'package:flutter/material.dart';
 
 import 'AddDonor/donor_form.dart';
@@ -72,7 +76,7 @@ class HomePage extends StatelessWidget {
               onTap: (){
                 switch(bloodbank[index]['title']){
                   case 'Donor Card':{
-                    // Navigator.push(context, MaterialPageRoute(builder: (context) => ));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const DonorCard()));
                   }break;
                   case 'Add Donor':{
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const DonorForm()));
@@ -81,10 +85,10 @@ class HomePage extends StatelessWidget {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const SelectBloodGroup()));
                   }break;
                   case 'Blood Request':{
-                    // Navigator.push(context, MaterialPageRoute(builder: (context) => ));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const BloodRequestForm()));
                   }break;
                   case 'Blood Bank':{
-                    // Navigator.push(context, MaterialPageRoute(builder: (context) => ));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const BloodBank()));
                   }break;
                   case 'My Notes':{
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const MyNotes()));
@@ -324,7 +328,9 @@ class HomePage extends StatelessWidget {
             ),
             const Divider(thickness: 2,),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SelectLR()));
+              },
               title: const Row(
                 children: [
                   Icon(

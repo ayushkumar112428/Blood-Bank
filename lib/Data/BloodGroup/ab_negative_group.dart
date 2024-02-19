@@ -1,4 +1,4 @@
-import 'bloodgroup.dart';
+import '../bloodgroup.dart';
 
 List<BloodGroup> abNegativeGroup = [
   BloodGroup(
@@ -40,7 +40,7 @@ List<BloodGroup> abNegativeGroup = [
     donorDisease: "No",
     donorAddress: "Vastral,Ahmadabad",
     donorAadharNumber: "556677602353",
-    bloodReceivesHospital: "DK Hospital",
+    bloodReceivesHospital: "Akash Hospital",
     hospitalLocation: "Iskcon,Ahmedabad",
     donorWeight: 60,
     donorAge: 25,
