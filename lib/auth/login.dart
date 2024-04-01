@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w400,
-                                letterSpacing: 1.3),
+                                letterSpacing: 1.3,),
                           ),
                         ),
                       ],
@@ -65,17 +65,14 @@ class _LoginPageState extends State<LoginPage> {
                     TextFormField(
                       controller: _email,
                       cursorColor: Colors.grey,
-                      style: const TextStyle(
-                          fontSize: 18,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500),
+                      style: const TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
                       decoration: InputDecoration(
                           hintText: "Enter a email",
                           label: const Text("Your Email"),
                           labelStyle: TextStyle(
                             color: Colors.grey.shade700,
                             fontSize: 20,
-                          )),
+                          ),),
                     ),
                     const SizedBox(
                       height: 15,
@@ -84,21 +81,14 @@ class _LoginPageState extends State<LoginPage> {
                       controller: _password,
                       cursorColor: Colors.grey,
                       obscureText: _isObscure,
-                      style: const TextStyle(
-                          fontSize: 18,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500),
+                      style: const TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
                       decoration: InputDecoration(
                           hintText: "Enter a password",
                           label: const Text("Password"),
-                          labelStyle: TextStyle(
-                            color: Colors.grey.shade700,
-                            fontSize: 20,
+                          labelStyle: TextStyle(color: Colors.grey.shade700,fontSize: 20,
                           ),
                           suffixIcon: IconButton(
-                            icon: Icon(_isObscure
-                                ? Icons.visibility
-                                : Icons.visibility_off),
+                            icon: Icon(_isObscure? Icons.visibility: Icons.visibility_off),
                             onPressed: () {
                               setState(() {
                                 _isObscure = !_isObscure;

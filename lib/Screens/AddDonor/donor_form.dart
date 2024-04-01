@@ -1,6 +1,7 @@
 import 'package:bloodbank/Screens/AddDonor/added_donor_data.dart';
 import 'package:bloodbank/Style/textformfield.dart';
 import 'package:flutter/material.dart';
+import 'package:bloodbank/Sqflite/sql_helper.dart';
 
 class DonorForm extends StatefulWidget {
   const DonorForm({super.key});
@@ -10,6 +11,33 @@ class DonorForm extends StatefulWidget {
 }
 
 class _DonorFormState extends State<DonorForm> {
+  List<Map<String,dynamic>> _donorData = [];
+  Map<String,dynamic> addDonorData = {
+    'Group' : '',
+    'DonorName': '',
+    'DonorPhoneNumber': '',
+    'DonorProfession': '',
+    'DonorDisease': '',
+    'DonorAddress': '',
+    'DonorAadharNumber': '',
+    'BloodReceivesHospital': '',
+    'HospitalLocation': '',
+    'DonorWeight': '',
+    'DonorAge': '',
+    'WhoManyTimeDonate': '',
+  };
+  void _refreshPage() async {
+    final data = await SQLHelperBloodDonor.getItems();
+    setState(() {
+      _donorData = data;
+    });
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _refreshPage();
+  }
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _donorName = TextEditingController();
   final TextEditingController _donorProfession = TextEditingController();
@@ -199,19 +227,19 @@ class _DonorFormState extends State<DonorForm> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      _radioButtion("A +"),
-                      _radioButtion("A -"),
-                      _radioButtion("B +"),
-                      _radioButtion("B -")
+                      _radioButtion("A+"),
+                      _radioButtion("A-"),
+                      _radioButtion("B+"),
+                      _radioButtion("B-")
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      _radioButtion("AB +"),
-                      _radioButtion("AB -"),
-                      _radioButtion("O +"),
-                      _radioButtion("O -")
+                      _radioButtion("AB+"),
+                      _radioButtion("AB-"),
+                      _radioButtion("O+"),
+                      _radioButtion("O-")
                     ],
                   )
                 ],
@@ -328,8 +356,21 @@ class _DonorFormState extends State<DonorForm> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate() && _bloodGroup!.isNotEmpty) {
+                    addDonorData['Group'] = _bloodGroup;
+                    addDonorData['DonorName'] = _donorName.text;
+                    addDonorData['DonorPhoneNumber'] = _donorMobileNumber.text;
+                    addDonorData['DonorProfession'] = _donorProfession.text;
+                    addDonorData['DonorDisease'] = _donorDisease.text;
+                    addDonorData['DonorAddress'] = _donorAddress.text;
+                    addDonorData['DonorAadharNumber'] = _donorAadharCardNumber.text;
+                    addDonorData['BloodReceivesHospital'] = _hospitalName.text;
+                    addDonorData['HospitalLocation'] = _hospitalLocation.text;
+                    addDonorData['DonorWeight'] = _donorWeight.text;
+                    addDonorData['DonorAge'] = _donorAge.text;
+                    addDonorData['WhoManyTimeDonate'] = _whoManyTimeBloodDonate.text;
+                    await _addItem();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const AddedDonorData()));
                   }
                   // Navigator.push(context, MaterialPageRoute(builder: (context) => const AddedDonorData()));
@@ -372,5 +413,12 @@ class _DonorFormState extends State<DonorForm> {
         ],
       ),
     );
+  }
+
+  Future<void> _addItem() async {
+    // print("\n\n\n\n AadharCard Number : ");
+    // print(addDonorData['DonorAadharNumber']);
+    await SQLHelperBloodDonor.createItem(addDonorData);
+    _refreshPage();
   }
 }

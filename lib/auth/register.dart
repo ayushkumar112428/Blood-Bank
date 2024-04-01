@@ -35,10 +35,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                       child: const Text(
                         "Log in",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: 1.3),
+                        style: TextStyle(color: Colors.black,fontWeight: FontWeight.w400,letterSpacing: 1.3),
                       ),
                     ),
                   ],
@@ -48,10 +45,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const Text(
                   "Sign up",
-                  style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.deepPurple),
+                  style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.deepPurple),
                 ),
                 const SizedBox(
                   height: 30,
@@ -77,17 +71,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 TextFormField(
                   controller: _email,
                   cursorColor: Colors.grey,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
                   decoration: InputDecoration(
                       hintText: "Enter a email",
                       label: const Text("Your Email"),
-                      labelStyle: TextStyle(
-                        color: Colors.grey.shade700,
-                        fontSize: 20,
-                      )),
+                      labelStyle: TextStyle(color: Colors.grey.shade700,fontSize: 20,)),
                 ),
                 const SizedBox(
                   height: 15,
@@ -95,27 +83,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 TextFormField(
                   controller: _password,
                   cursorColor: Colors.grey,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
                   decoration: InputDecoration(
                       hintText: "Enter a password",
                       label: const Text("Password"),
-                      labelStyle: TextStyle(
-                        color: Colors.grey.shade700,
-                        fontSize: 20,
-                      )),
+                      labelStyle: TextStyle(color: Colors.grey.shade700,fontSize: 20,)),
                 ),
                 const SizedBox(height: 15,),
                 TextFormField(
                   controller: _confirmpassword,
                   cursorColor: Colors.grey,
                   obscureText: false,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontSize: 18, color: Colors.black,fontWeight: FontWeight.w500),
                   decoration: InputDecoration(
                       hintText: "Enter a conform password",
                       label: const Text("Conform Password"),
