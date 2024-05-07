@@ -60,32 +60,33 @@ class SelectBloodGroup extends StatelessWidget {
           itemBuilder: (context, index) {
             return InkWell(
               onTap: (){
-                switch(bloodGroup[index]['group']){
-                  case 'A+':{
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
-                  }break;
-                  case 'A-':{
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
-                  }break;
-                  case 'B+':{
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
-                  }break;
-                  case 'B-':{
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
-                  }break;
-                  case 'AB+':{
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
-                  }break;
-                  case 'AB-':{
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
-                  }break;
-                  case 'O+':{
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
-                  }break;
-                  case 'O-':{
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
-                  }break;
-                }
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
+                // switch(bloodGroup[index]['group']){
+                //   case 'A+':{
+                //     Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
+                //   }break;
+                //   case 'A-':{
+                //     Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
+                //   }break;
+                //   case 'B+':{
+                //     Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
+                //   }break;
+                //   case 'B-':{
+                //     Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
+                //   }break;
+                //   case 'AB+':{
+                //     Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
+                //   }break;
+                //   case 'AB-':{
+                //     Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
+                //   }break;
+                //   case 'O+':{
+                //     Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
+                //   }break;
+                //   case 'O-':{
+                //     Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedBloodGroup(bloodGroup: bloodGroup[index]['group'])));
+                //   }break;
+                // }
               },
               child: Card(
                 color: Colors.deepPurple,

@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: use_build_context_synchronously
 
+import 'package:flutter/material.dart';
 import '../home_page.dart';
 
 class AddedDonorData extends StatefulWidget {
@@ -13,7 +14,6 @@ class _AddedDonorDataState extends State<AddedDonorData> {
   bool animate = false;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     startAnimation();
   }

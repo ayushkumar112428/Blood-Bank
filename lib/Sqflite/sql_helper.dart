@@ -48,7 +48,7 @@ class SQLHelperBloodDonor {
     final List<Map<String, dynamic>> maps = await db.query('BloodDonor',
         where: 'id = ?',
         whereArgs: [id],
-        limit: 1);
+        limit: 1,);
     // if (maps.isNotEmpty) {
     //   return maps.first;
     // }

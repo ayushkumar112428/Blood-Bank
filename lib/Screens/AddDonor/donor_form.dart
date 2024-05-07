@@ -11,7 +11,7 @@ class DonorForm extends StatefulWidget {
 }
 
 class _DonorFormState extends State<DonorForm> {
-  List<Map<String,dynamic>> _donorData = [];
+  // List<Map<String,dynamic>> _donorData = [];
   Map<String,dynamic> addDonorData = {
     'Group' : '',
     'DonorName': '',
@@ -26,18 +26,17 @@ class _DonorFormState extends State<DonorForm> {
     'DonorAge': '',
     'WhoManyTimeDonate': '',
   };
-  void _refreshPage() async {
-    final data = await SQLHelperBloodDonor.getItems();
-    setState(() {
-      _donorData = data;
-    });
-  }
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _refreshPage();
-  }
+  // void _refreshPage() async {
+  //   final data = await SQLHelperBloodDonor.getItems();
+  //   setState(() {
+  //     _donorData = data;
+  //   });
+  // }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _refreshPage();
+  // }
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _donorName = TextEditingController();
   final TextEditingController _donorProfession = TextEditingController();
@@ -51,6 +50,7 @@ class _DonorFormState extends State<DonorForm> {
   final TextEditingController _hospitalLocation = TextEditingController();
   final TextEditingController _whoManyTimeBloodDonate = TextEditingController();
   String? _bloodGroup;
+  
   @override
   Widget build(BuildContext context) {
     double gape = 15;
@@ -371,19 +371,10 @@ class _DonorFormState extends State<DonorForm> {
                     addDonorData['DonorAge'] = _donorAge.text;
                     addDonorData['WhoManyTimeDonate'] = _whoManyTimeBloodDonate.text;
                     await _addItem();
+                    // ignore: use_build_context_synchronously
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const AddedDonorData()));
                   }
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) => const AddedDonorData()));
                 },
-                child: Text(
-                  button,  // Assuming 'button' is a variable holding the button text
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    letterSpacing: 1.3,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(double.infinity, 50),
                   backgroundColor: Colors.deepPurple,
@@ -391,6 +382,15 @@ class _DonorFormState extends State<DonorForm> {
                     color: Colors.white,
                     width: 2,
                     style: BorderStyle.solid,
+                  ),
+                ),
+                child: Text(
+                  button,  // Assuming 'button' is a variable holding the button text
+                  style: const TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    letterSpacing: 1.3,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -416,9 +416,7 @@ class _DonorFormState extends State<DonorForm> {
   }
 
   Future<void> _addItem() async {
-    // print("\n\n\n\n AadharCard Number : ");
-    // print(addDonorData['DonorAadharNumber']);
     await SQLHelperBloodDonor.createItem(addDonorData);
-    _refreshPage();
+    // _refreshPage();
   }
 }

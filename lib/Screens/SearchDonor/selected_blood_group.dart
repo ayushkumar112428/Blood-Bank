@@ -1,14 +1,5 @@
-import 'package:bloodbank/Data/BloodGroup/a_negative_group.dart';
-import 'package:bloodbank/Data/BloodGroup/a_positive_group.dart';
-import 'package:bloodbank/Data/BloodGroup/ab_negative_group.dart';
-import 'package:bloodbank/Data/BloodGroup/ab_positive_group.dart';
-import 'package:bloodbank/Data/BloodGroup/b_negative_group.dart';
-import 'package:bloodbank/Data/BloodGroup/b_positive_group.dart';
-import 'package:bloodbank/Data/bloodgroup.dart';
-import 'package:bloodbank/Data/BloodGroup/o_positive_group.dart';
 import 'package:bloodbank/Sqflite/sql_helper.dart';
 import 'package:flutter/material.dart';
-import '../../Data/BloodGroup/o_negative_group.dart';
 
 class SelectedBloodGroup extends StatefulWidget {
   final String bloodGroup;
@@ -19,7 +10,7 @@ class SelectedBloodGroup extends StatefulWidget {
 }
 
 class _SelectedBloodGroupState extends State<SelectedBloodGroup> {
-  List<BloodGroup> selectedBloodGroupData = [];
+  // List<BloodGroup> selectedBloodGroupData = [];
   List<Map<String, dynamic>> _donorData = [];
   List<Map<String, dynamic>> groupOfData = [];
   void _refreshPage() async {
@@ -34,7 +25,7 @@ class _SelectedBloodGroupState extends State<SelectedBloodGroup> {
     setState(() {
       for (var donor in _donorData) {
         switch (donor['Group']) {
-          case 'A +':
+          case 'A+':
             {
               groupOfData.add(donor);
             }
@@ -83,48 +74,48 @@ class _SelectedBloodGroupState extends State<SelectedBloodGroup> {
   void initState() {
     super.initState();
     _refreshPage();
-    switch (widget.bloodGroup) {
-      case 'A+':
-        {
-          selectedBloodGroupData.addAll(aPositiveGroup);
-        }
-        break;
-      case 'A-':
-        {
-          selectedBloodGroupData.addAll(aNegativeGroup);
-        }
-        break;
-      case 'B+':
-        {
-          selectedBloodGroupData.addAll(bPositiveGroup);
-        }
-        break;
-      case 'B-':
-        {
-          selectedBloodGroupData.addAll(bNegativeGroup);
-        }
-        break;
-      case 'AB+':
-        {
-          selectedBloodGroupData.addAll(abPositiveGroup);
-        }
-        break;
-      case 'AB-':
-        {
-          selectedBloodGroupData.addAll(abNegativeGroup);
-        }
-        break;
-      case 'O+':
-        {
-          selectedBloodGroupData.addAll(oPositiveGroup);
-        }
-        break;
-      case 'O-':
-        {
-          selectedBloodGroupData.addAll(oNegativeGroup);
-        }
-        break;
-    }
+    // switch (widget.bloodGroup) {
+    //   case 'A+':
+    //     {
+    //       selectedBloodGroupData.addAll(aPositiveGroup);
+    //     }
+    //     break;
+    //   case 'A-':
+    //     {
+    //       selectedBloodGroupData.addAll(aNegativeGroup);
+    //     }
+    //     break;
+    //   case 'B+':
+    //     {
+    //       selectedBloodGroupData.addAll(bPositiveGroup);
+    //     }
+    //     break;
+    //   case 'B-':
+    //     {
+    //       selectedBloodGroupData.addAll(bNegativeGroup);
+    //     }
+    //     break;
+    //   case 'AB+':
+    //     {
+    //       selectedBloodGroupData.addAll(abPositiveGroup);
+    //     }
+    //     break;
+    //   case 'AB-':
+    //     {
+    //       selectedBloodGroupData.addAll(abNegativeGroup);
+    //     }
+    //     break;
+    //   case 'O+':
+    //     {
+    //       selectedBloodGroupData.addAll(oPositiveGroup);
+    //     }
+    //     break;
+    //   case 'O-':
+    //     {
+    //       selectedBloodGroupData.addAll(oNegativeGroup);
+    //     }
+    //     break;
+    // }
   }
 
   @override
@@ -153,30 +144,29 @@ class _SelectedBloodGroupState extends State<SelectedBloodGroup> {
       ),
       body: Column(
         children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: selectedBloodGroupData.length,
-              itemBuilder: (context, index) {
-                return Card(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      child: Text(widget.bloodGroup),
-                    ),
-                    title: Text(
-                        selectedBloodGroupData[index].donorName.toString()),
-                    subtitle: Text(
-                        "${selectedBloodGroupData[index].bloodReceivesHospital.toString()} -> ${selectedBloodGroupData[index].hospitalLocation.toString()} "),
-                  ),
-                );
-              },
-            ),
-          ),
+          // Expanded(
+          //   child: ListView.builder(
+          //     itemCount: selectedBloodGroupData.length,
+          //     itemBuilder: (context, index) {
+          //       return Card(
+          //         child: ListTile(
+          //           leading: CircleAvatar(
+          //             child: Text(widget.bloodGroup),
+          //           ),
+          //           title: Text(
+          //               selectedBloodGroupData[index].donorName.toString()),
+          //           subtitle: Text(
+          //               "${selectedBloodGroupData[index].bloodReceivesHospital.toString()} -> ${selectedBloodGroupData[index].hospitalLocation.toString()} "),
+          //         ),
+          //       );
+          //     },
+          //   ),
+          // ),
           Expanded(
             child: ListView.builder(
               itemCount: _donorData.length,
               itemBuilder: (context, index) {
-                // print("-->${_donorData[index]['Group']}||");
-                if(_donorData[index]['Group']=='A +' && widget.bloodGroup ==  'A+'){
+                if(_donorData[index]['Group']=='A+' && widget.bloodGroup ==  'A+'){
                   return Card(
                     child: ListTile(
                       leading: const CircleAvatar(
